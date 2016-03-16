@@ -33,6 +33,7 @@ class PotterShoppingCart
                         ];
                         $packages[$pkg_id]['TotalPrice'] += $item['SellPrice'];
                         $is_added = true;
+                        break; // 離開 packages 迴圈
                     }
                 }
                 // 尚未加入任何套裝計算
