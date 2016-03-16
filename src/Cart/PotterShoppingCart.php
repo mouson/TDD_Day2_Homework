@@ -19,9 +19,21 @@ class PotterShoppingCart
     public function checkout(array $items)
     {
         $total_price = 0;
+        $cart = [];
         foreach ($items as $item) {
+            $item_id = $item['Id'];
+
+            if (!array_key_exists($item_id, $cart)) {
+                $cart[$item_id] = ['Count' => 0];
+            }
+
+            $cart[$item_id]['Count'] += $item['Count'];
             $total_price += $item['SellPrice'];
         }
+        if (count($cart) == 2) {
+            $total_price *= 0.95;
+        }
+
         return $total_price;
     }
 }
