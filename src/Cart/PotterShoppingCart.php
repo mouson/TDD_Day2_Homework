@@ -30,7 +30,10 @@ class PotterShoppingCart
             $cart[$item_id]['Count'] += $item['Count'];
             $total_price += $item['SellPrice'];
         }
-        if (count($cart) == 2) {
+
+        $item_category_count = count($cart);
+        
+        if ($item_category_count == 2) {
             $total_price *= 0.95;
         }
 
