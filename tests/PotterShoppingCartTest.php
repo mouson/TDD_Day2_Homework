@@ -157,4 +157,50 @@ class PotterShoppingCartTest extends \PHPUnit_Framework_TestCase
         /** Assert */
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * Scenario 7: 第一集買了一本，第二三集各買了兩本，第五集買三本，
+     *             價格應為100*4*0.8 + 100*3*0.9 + 100 = 690
+     */
+    public function test_Cart_buy_一集買一本_二三集各2本_五集買三本_should_100乘3乘9折_加100乘2乘95折共460元()
+    {
+        /** Arrange */
+        $target = new PotterShoppingCart();
+        $items = [
+            ['Id' => 1, 'SellPrice' => 100, 'Count' => 1],
+            ['Id' => 2, 'SellPrice' => 100, 'Count' => 2],
+            ['Id' => 3, 'SellPrice' => 100, 'Count' => 2],
+            ['Id' => 5, 'SellPrice' => 100, 'Count' => 3],
+        ];
+        $expected = 690;
+
+        /** Act */
+        $actual = $target->checkout($items);
+
+        /** Assert */
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * Scenario 8: 第一集買了五本，第三四集各買了兩本，第五集買三本，
+     *             價格應為100*4*2*0.8 + 100*2*0.95 + 100*2 = 1030
+     */
+    public function test_Cart_buy_一集5本_二三集各2本_五集買3本_should_100乘4乘2套乘8折_加100乘2乘95折_加100乘2共1020元()
+    {
+        /** Arrange */
+        $target = new PotterShoppingCart();
+        $items = [
+            ['Id' => 1, 'SellPrice' => 100, 'Count' => 5],
+            ['Id' => 3, 'SellPrice' => 100, 'Count' => 2],
+            ['Id' => 4, 'SellPrice' => 100, 'Count' => 2],
+            ['Id' => 5, 'SellPrice' => 100, 'Count' => 3],
+        ];
+        $expected = 1030;
+
+        /** Act */
+        $actual = $target->checkout($items);
+
+        /** Assert */
+        $this->assertEquals($expected, $actual);
+    }
 }
