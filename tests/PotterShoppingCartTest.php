@@ -33,7 +33,7 @@ class PotterShoppingCartTest extends \PHPUnit_Framework_TestCase
     /**
      * Scenario 2: 第一集買了一本，第二集也買了一本，價格應為100*2*0.95=190
      */
-    public function test_PotterShoppingCart_buy_two_diff_should_95off_190_doller()
+    public function test_PotterShoppingCart_buy_two_diff_should_95off_190_dollar()
     {
         /** Arrange */
         $target = new PotterShoppingCart();
@@ -53,7 +53,7 @@ class PotterShoppingCartTest extends \PHPUnit_Framework_TestCase
     /**
      * Scenario 3: 一二三集各買了一本，價格應為100*3*0.9=270
      */
-    public function test_PotterShoppingCart_buy_3_diff_should_90off_270_doller()
+    public function test_PotterShoppingCart_buy_3_diff_should_90off_270_dollar()
     {
         /** Arrange */
         $target = new PotterShoppingCart();
