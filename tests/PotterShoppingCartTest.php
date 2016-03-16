@@ -70,4 +70,26 @@ class PotterShoppingCartTest extends \PHPUnit_Framework_TestCase
         /** Assert */
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * Scenario 4: 一二三四集各買了一本，價格應為100*4*0.8=320
+     */
+    public function test_PotterShoppingCart_buy_4_diff_should_80off_320_dollar()
+    {
+        /** Arrange */
+        $target = new PotterShoppingCart();
+        $items = [
+            ['Id' => 1, 'SellPrice' => 100, 'Count' => 1],
+            ['Id' => 2, 'SellPrice' => 100, 'Count' => 1],
+            ['Id' => 3, 'SellPrice' => 100, 'Count' => 1],
+            ['Id' => 4, 'SellPrice' => 100, 'Count' => 1],
+        ];
+        $expected = 320;
+
+        /** Act */
+        $actual = $target->checkout($items);
+
+        /** Assert */
+        $this->assertEquals($expected, $actual);
+    }
 }
