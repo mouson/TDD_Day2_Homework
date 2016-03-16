@@ -19,19 +19,19 @@ class PotterShoppingCart
     public function checkout(array $items)
     {
         $total_price = 0;
-        $cart = [];
+        $packages = [];
         foreach ($items as $item) {
             $item_id = $item['Id'];
 
-            if (!array_key_exists($item_id, $cart)) {
-                $cart[$item_id] = ['Count' => 0];
+            if (!array_key_exists($item_id, $packages)) {
+                $packages[$item_id] = ['Count' => 0];
             }
 
-            $cart[$item_id]['Count'] += $item['Count'];
+            $packages[$item_id]['Count'] += $item['Count'];
             $total_price += $item['SellPrice'];
         }
 
-        $item_category_count = count($cart);
+        $item_category_count = count($packages);
 
         if ($item_category_count == 2) {
             $total_price *= 0.95;
@@ -41,7 +41,7 @@ class PotterShoppingCart
             $total_price *= 0.8;
         } elseif ($item_category_count == 5) {
             $total_price *= 0.75;
-        } 
+        }
 
         return $total_price;
     }
