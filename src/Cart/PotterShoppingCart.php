@@ -39,7 +39,9 @@ class PotterShoppingCart
             $total_price *= 0.9;
         } elseif ($item_category_count == 4) {
             $total_price *= 0.8;
-        }
+        } elseif ($item_category_count == 5) {
+            $total_price *= 0.75;
+        } 
 
         return $total_price;
     }
