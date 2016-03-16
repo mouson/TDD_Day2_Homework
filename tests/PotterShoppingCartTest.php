@@ -12,7 +12,7 @@ use Homework\Cart\PotterShoppingCart;
 class PotterShoppingCartTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * 測試 第一集買了一本，其他都沒買，價格應為100*1=100元
+     * Scenario 1: 第一集買了一本，其他都沒買，價格應為100*1=100元
      */
     public function test_PotterShoppingCart_buy_one_should_100_dollar()
     {
@@ -31,7 +31,7 @@ class PotterShoppingCartTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Scenario: 第一集買了一本，第二集也買了一本，價格應為100*2*0.95=190
+     * Scenario 2: 第一集買了一本，第二集也買了一本，價格應為100*2*0.95=190
      */
     public function test_PotterShoppingCart_buy_two_diff_should_95off_190_doller()
     {
