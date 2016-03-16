@@ -119,14 +119,14 @@ class PotterShoppingCartTest extends \PHPUnit_Framework_TestCase
     /**
      * Scenario 6: 一二集各買了一本，第三集買了兩本，價格應為100*3*0.9 + 100 = 370
      */
-    public function test_Cart_buy_一二集各2本_第三集1本_should_100乘3乘9折_加100元共370元()
+    public function test_Cart_buy_一二集各一本_第三集2本_should_100乘3乘9折_加100元共370元()
     {
         /** Arrange */
         $target = new PotterShoppingCart();
         $items = [
-            ['Id' => 1, 'SellPrice' => 100, 'Count' => 2],
-            ['Id' => 2, 'SellPrice' => 100, 'Count' => 2],
-            ['Id' => 3, 'SellPrice' => 100, 'Count' => 1],
+            ['Id' => 1, 'SellPrice' => 100, 'Count' => 1],
+            ['Id' => 2, 'SellPrice' => 100, 'Count' => 1],
+            ['Id' => 3, 'SellPrice' => 100, 'Count' => 2],
         ];
         $expected = 370;
 
